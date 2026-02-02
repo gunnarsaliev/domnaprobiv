@@ -78,7 +78,7 @@ const Navbar1 = ({
       ],
     },
     {
-      title: 'Училиште',
+      title: 'Училище',
       url: '/uchilishe',
     },
     {

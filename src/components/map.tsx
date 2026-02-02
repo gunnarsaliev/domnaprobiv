@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
+import { useTheme } from 'next-themes'
 
 // Fix for default markers in React Leaflet
 let DefaultIcon: L.Icon | undefined
@@ -50,6 +51,27 @@ function MapController({ onMapReady }: { onMapReady?: (map: L.Map) => void }): n
   return null
 }
 
+function ThemeAwareTileLayer() {
+  const { theme } = useTheme()
+  const [tileUrl, setTileUrl] = useState('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+
+  useEffect(() => {
+    // Use dark mode tiles for dark theme
+    if (theme === 'dark') {
+      setTileUrl('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png')
+    } else {
+      setTileUrl('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+    }
+  }, [theme])
+
+  return (
+    <TileLayer
+      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      url={tileUrl}
+    />
+  )
+}
+
 export default function Map({
   center = [43.8531, 25.9651],
   zoom = 13,
@@ -60,10 +82,53 @@ export default function Map({
   onMapReady,
 }: MapProps) {
   const [isMounted, setIsMounted] = useState(false)
+  const { theme } = useTheme()
 
   useEffect(() => {
     setIsMounted(true)
   }, [])
+
+  useEffect(() => {
+    // Apply dark mode styles to Leaflet controls
+    if (isMounted && theme === 'dark') {
+      const style = document.createElement('style')
+      style.id = 'leaflet-dark-mode'
+      style.textContent = `
+        .leaflet-control-zoom a,
+        .leaflet-control-attribution a {
+          background-color: hsl(var(--muted)) !important;
+          color: hsl(var(--muted-foreground)) !important;
+          border: 1px solid hsl(var(--border)) !important;
+        }
+        .leaflet-control-zoom a:hover {
+          background-color: hsl(var(--accent)) !important;
+          color: hsl(var(--accent-foreground)) !important;
+        }
+        .leaflet-popup-content-wrapper,
+        .leaflet-popup-tip {
+          background-color: hsl(var(--card)) !important;
+          color: hsl(var(--card-foreground)) !important;
+          border: 1px solid hsl(var(--border)) !important;
+        }
+        .leaflet-popup-content {
+          color: hsl(var(--card-foreground)) !important;
+        }
+      `
+      document.head.appendChild(style)
+    } else {
+      const existingStyle = document.getElementById('leaflet-dark-mode')
+      if (existingStyle) {
+        existingStyle.remove()
+      }
+    }
+
+    return () => {
+      const existingStyle = document.getElementById('leaflet-dark-mode')
+      if (existingStyle) {
+        existingStyle.remove()
+      }
+    }
+  }, [theme, isMounted])
 
   if (!isMounted) {
     return (
@@ -76,18 +141,18 @@ export default function Map({
   }
 
   return (
-    <div className={`relative ${className}`} style={{ height, width }}>
+    <div
+      className={`relative ${className} rounded-lg overflow-hidden border border-border/50`}
+      style={{ height, width }}
+    >
       <MapContainer
         center={center}
         zoom={zoom}
         style={{ height: '100%', width: '100%' }}
         className="z-0"
-        key={`map-${center.join('-')}`}
+        key={`map-${center.join('-')}-${theme}`}
       >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
+        <ThemeAwareTileLayer />
 
         {markers.map((marker, index) => (
           <Marker key={index} position={marker.position} icon={marker.icon || DefaultIcon}>

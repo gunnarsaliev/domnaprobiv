@@ -59,7 +59,7 @@ export function CustomWorshipPlayer({ worshipSongs }: CustomWorshipPlayerProps) 
     const query = searchQuery.toLowerCase()
     return (
       song.filename?.toLowerCase().includes(query) ||
-      formatDate(song.date).toLowerCase().includes(query)
+      (song.date && formatDate(song.date).toLowerCase().includes(query))
     )
   })
 
@@ -73,39 +73,48 @@ export function CustomWorshipPlayer({ worshipSongs }: CustomWorshipPlayerProps) 
     }
   }, [currentTrackIndex, filteredSongs.length, repeatMode])
 
-  const calculateTimeFromPosition = useCallback((clientX: number): number => {
-    const progressBar = progressBarRef.current
-    if (!progressBar || !duration) return 0
+  const calculateTimeFromPosition = useCallback(
+    (clientX: number): number => {
+      const progressBar = progressBarRef.current
+      if (!progressBar || !duration) return 0
 
-    const rect = progressBar.getBoundingClientRect()
-    const clickPosition = clientX - rect.left
-    const percentage = Math.max(0, Math.min(1, clickPosition / rect.width))
-    return percentage * duration
-  }, [duration])
+      const rect = progressBar.getBoundingClientRect()
+      const clickPosition = clientX - rect.left
+      const percentage = Math.max(0, Math.min(1, clickPosition / rect.width))
+      return percentage * duration
+    },
+    [duration],
+  )
 
-  const handleMouseMove = useCallback((e: MouseEvent) => {
-    if (isSeeking) {
-      const newTime = calculateTimeFromPosition(e.clientX)
-      setCurrentTime(newTime)
-      if (audioRef.current) {
-        audioRef.current.currentTime = newTime
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      if (isSeeking) {
+        const newTime = calculateTimeFromPosition(e.clientX)
+        setCurrentTime(newTime)
+        if (audioRef.current) {
+          audioRef.current.currentTime = newTime
+        }
       }
-    }
-  }, [isSeeking, calculateTimeFromPosition])
+    },
+    [isSeeking, calculateTimeFromPosition],
+  )
 
   const handleMouseUp = useCallback(() => {
     setIsSeeking(false)
   }, [])
 
-  const handleTouchMove = useCallback((e: TouchEvent) => {
-    if (isSeeking && e.touches[0]) {
-      const newTime = calculateTimeFromPosition(e.touches[0].clientX)
-      setCurrentTime(newTime)
-      if (audioRef.current) {
-        audioRef.current.currentTime = newTime
+  const handleTouchMove = useCallback(
+    (e: TouchEvent) => {
+      if (isSeeking && e.touches[0]) {
+        const newTime = calculateTimeFromPosition(e.touches[0].clientX)
+        setCurrentTime(newTime)
+        if (audioRef.current) {
+          audioRef.current.currentTime = newTime
+        }
       }
-    }
-  }, [isSeeking, calculateTimeFromPosition])
+    },
+    [isSeeking, calculateTimeFromPosition],
+  )
 
   const handleTouchEnd = useCallback(() => {
     setIsSeeking(false)
@@ -285,35 +294,37 @@ export function CustomWorshipPlayer({ worshipSongs }: CustomWorshipPlayerProps) 
       />
 
       {/* Main Player Card */}
-      <Card className="p-6 bg-gradient-to-br from-background to-muted/20">
+      <Card className="p-6 bg-gradient-to-br from-background to-muted/30 border-border/50 shadow-sm">
         {/* Track Info */}
         <div className="mb-6">
-          <h2 className="text-2xl font-bold mb-2">
+          <h2 className="text-2xl font-bold mb-2 text-foreground">
             {currentTrack.filename || `Песен ${currentTrackIndex + 1}`}
           </h2>
-          <p className="text-sm text-muted-foreground">{formatDate(currentTrack.date)}</p>
+          <p className="text-sm text-muted-foreground">
+            {currentTrack.date ? formatDate(currentTrack.date) : ''}
+          </p>
         </div>
 
         {/* Progress Bar */}
         <div className="mb-6">
           <div
             ref={progressBarRef}
-            className="relative h-2 bg-secondary rounded-full group cursor-pointer select-none"
+            className="relative h-2 bg-secondary rounded-full group cursor-pointer select-none border border-border/30"
             onMouseDown={handleMouseDown}
             onTouchStart={handleTouchStart}
           >
             {/* Progress fill */}
             <div
-              className="absolute h-full bg-primary rounded-full transition-all duration-150 pointer-events-none"
+              className="absolute h-full bg-primary rounded-full transition-all duration-150 pointer-events-none shadow-sm"
               style={{ width: `${progressPercentage}%` }}
             />
             {/* Draggable thumb */}
             {duration > 0 && (
               <div
-                className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-primary rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+                className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-primary rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-all pointer-events-none border-2 border-background"
                 style={{ left: `${progressPercentage}%` }}
               >
-                <div className="absolute inset-0 rounded-full bg-primary-foreground/30"></div>
+                <div className="absolute inset-0 rounded-full bg-primary-foreground/20"></div>
               </div>
             )}
           </div>
@@ -330,7 +341,11 @@ export function CustomWorshipPlayer({ worshipSongs }: CustomWorshipPlayerProps) 
               variant="ghost"
               size="icon"
               onClick={toggleRepeat}
-              className={repeatMode !== 'none' ? 'text-primary' : ''}
+              className={
+                repeatMode !== 'none'
+                  ? 'text-primary bg-primary/10 hover:bg-primary/20'
+                  : 'hover:bg-accent'
+              }
             >
               {repeatMode === 'one' ? (
                 <Repeat1 className="h-5 w-5" />
@@ -341,19 +356,28 @@ export function CustomWorshipPlayer({ worshipSongs }: CustomWorshipPlayerProps) 
           </div>
 
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" onClick={handlePrevious}>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={handlePrevious}
+              className="hover:bg-accent"
+            >
               <SkipBack className="h-5 w-5" />
             </Button>
-            <Button size="icon" className="h-12 w-12 rounded-full" onClick={togglePlay}>
+            <Button
+              size="icon"
+              className="h-12 w-12 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
+              onClick={togglePlay}
+            >
               {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6 ml-1" />}
             </Button>
-            <Button variant="ghost" size="icon" onClick={handleNext}>
+            <Button variant="ghost" size="icon" onClick={handleNext} className="hover:bg-accent">
               <SkipForward className="h-5 w-5" />
             </Button>
           </div>
 
           <div className="flex items-center gap-2 flex-1 justify-end">
-            <Button variant="ghost" size="icon" onClick={toggleMute}>
+            <Button variant="ghost" size="icon" onClick={toggleMute} className="hover:bg-accent">
               {isMuted || volume === 0 ? (
                 <VolumeX className="h-5 w-5" />
               ) : (
@@ -374,7 +398,7 @@ export function CustomWorshipPlayer({ worshipSongs }: CustomWorshipPlayerProps) 
       </Card>
 
       {/* Search */}
-      <Card className="p-4">
+      <Card className="p-4 border-border/50">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
@@ -382,29 +406,31 @@ export function CustomWorshipPlayer({ worshipSongs }: CustomWorshipPlayerProps) 
             placeholder="Търсене по име или дата..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10"
+            className="pl-10 bg-background/50 border-border/50 focus:border-primary"
           />
         </div>
       </Card>
 
       {/* Playlist */}
-      <Card className="p-4">
-        <h3 className="text-lg font-semibold mb-4">Плейлист ({filteredSongs.length})</h3>
+      <Card className="p-4 border-border/50">
+        <h3 className="text-lg font-semibold mb-4 text-foreground">
+          Плейлист ({filteredSongs.length})
+        </h3>
         <div className="space-y-2 max-h-96 overflow-y-auto">
           {filteredSongs.map((song, index) => (
             <button
               key={song.id}
               onClick={() => handleTrackSelect(index)}
-              className={`w-full text-left p-3 rounded-lg transition-all duration-200 ${
+              className={`w-full text-left p-3 rounded-lg transition-all duration-200 border border-transparent ${
                 index === currentTrackIndex && song.id === currentTrack.id
-                  ? 'bg-primary text-primary-foreground shadow-md'
-                  : 'hover:bg-accent hover:text-accent-foreground'
+                  ? 'bg-primary text-primary-foreground shadow-md border-primary/20'
+                  : 'hover:bg-accent hover:text-accent-foreground border-border/30'
               }`}
             >
               <div className="flex items-center justify-between">
                 <div className="flex-1 min-w-0">
                   <p className="font-medium truncate">{song.filename || `Песен ${index + 1}`}</p>
-                  <p className="text-sm opacity-80">{formatDate(song.date)}</p>
+                  <p className="text-sm opacity-80">{song.date ? formatDate(song.date) : ''}</p>
                 </div>
                 {index === currentTrackIndex && song.id === currentTrack.id && isPlaying && (
                   <div className="ml-2 shrink-0">
