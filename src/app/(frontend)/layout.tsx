@@ -1,8 +1,8 @@
 import React from 'react'
 import './styles.css'
 import { ThemeProvider } from '@/providers/theme-provider'
-import { Navbar1 } from '@/components/shadcn-blocks/navbar1'
-import { Footer7 } from '@/components/shadcn-blocks/footer7'
+import { Navbar22 } from '@/components/navbar22'
+import { Footer30 } from '@/components/footer30'
 
 export const metadata = {
   title: 'Църква „Дом на пробив“ Русе',
@@ -15,26 +15,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="bg" suppressHydrationWarning>
       <head>
-        <script
-          suppressHydrationWarning
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                function getThemePreference() {
-                  const stored = localStorage.getItem('theme');
-                  if (stored) {
-                    return stored;
-                  }
-                  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                }
-                
-                const theme = getThemePreference();
-                document.documentElement.classList.toggle('dark', theme === 'dark');
-                document.documentElement.setAttribute('data-theme', theme);
-              })();
-            `,
-          }}
-        />
+        <script src="/scripts/theme-init.js" suppressHydrationWarning />
       </head>
       <body>
         <ThemeProvider
@@ -43,10 +24,9 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar1 />
+          <Navbar22 />
           <main>{children}</main>
-
-          <Footer7 />
+          <Footer30 />
         </ThemeProvider>
       </body>
     </html>
