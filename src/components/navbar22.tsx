@@ -4,6 +4,7 @@ import { Menu } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 import { cn } from '@/lib/utils'
+import { getWeatherData, type WeatherData } from '@/lib/weather'
 
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
@@ -15,6 +16,7 @@ interface Navbar22Props {
 const Navbar22 = ({ className }: Navbar22Props) => {
   const [currentTime, setCurrentTime] = useState('')
   const [isOpen, setIsOpen] = useState(false)
+  const [weather, setWeather] = useState<WeatherData | null>(null)
 
   useEffect(() => {
     const updateTime = () => {
@@ -32,8 +34,20 @@ const Navbar22 = ({ className }: Navbar22Props) => {
     return () => clearInterval(interval)
   }, [])
 
+  useEffect(() => {
+    const fetchWeather = async () => {
+      const weatherData = await getWeatherData()
+      setWeather(weatherData)
+    }
+
+    fetchWeather()
+    // Refresh weather every 10 minutes
+    const weatherInterval = setInterval(fetchWeather, 10 * 60 * 1000)
+    return () => clearInterval(weatherInterval)
+  }, [])
+
   const navLinks = [
-    { name: 'Начало', href: '/' },
+    // { name: 'Начало', href: '/' },
     { name: 'За нас', href: '/za-nas' },
     { name: 'Ресурси', href: '/resursi' },
     { name: 'Контакти', href: '/kontakti' },
@@ -64,17 +78,19 @@ const Navbar22 = ({ className }: Navbar22Props) => {
                     className="max-h-8 rounded-sm"
                     alt="shadcnblocks.com"
                   />
-                  <span className="text-lg font-semibold tracking-tighter">
-                    {' '}
-                    Църква Дом на пробив
-                  </span>
+                  <span className="text-xl font-semibold tracking-tighter"> Дом на пробив</span>
                 </a>
               </div>
               <div className="hidden items-center space-x-2 text-sm text-muted-foreground md:flex">
                 <span className="font-medium">Русе</span>
+                {weather && (
+                  <>
+                    <span className="font-medium">{weather.temperature}°C</span>
+                  </>
+                )}
                 <span className="text-muted-foreground">/</span>
 
-                <span className="font-medium">{currentTime}</span>
+                <span className="font-medium">{currentTime}ч.</span>
               </div>
 
               <div className="hidden items-center space-x-8 md:flex">
@@ -137,6 +153,7 @@ const Navbar22 = ({ className }: Navbar22Props) => {
                       </div>
                       <div className="border-t border-border pt-6">
                         <div className="text-center text-sm text-muted-foreground">
+                          {weather && <div className="font-medium">{weather.temperature}°C</div>}
                           <div className="font-medium">Ruse</div>
                           <div className="mt-1">{currentTime}</div>
                         </div>

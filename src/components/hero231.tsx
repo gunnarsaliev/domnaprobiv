@@ -228,15 +228,15 @@ const Hero231 = ({ className }: Hero231Props) => {
             variant="secondary"
             className="items-left group flex w-fit justify-center gap-3 rounded-full bg-muted/70 px-5 py-1"
           >
-            <span className="size-2.5 rounded-full bg-foreground" />
-            Flexible Plan customized for you
+            <span className="size-2.5 rounded-full bg-red-500" />
+            На живо всяка неделя от 10:30ч.
           </Button>
           <h1 className="mt-12 font-calSans text-5xl font-medium tracking-tight text-foreground md:text-7xl">
-            Blocks Built <br /> With Shadcn & Tailwind.
+            Църква <br />
+            "Дом на пробив"
           </h1>
           <p className="mt-3 max-w-lg text-muted-foreground/80">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem id voluptates sed
-            doloremque voluptas dolor laudantium eaque ex.
+            Да издигаме името на Исус в цялата прелест на Неговата личност и съвършенството.
           </p>
           <div className="flex gap-4 xl:mt-32">
             <Link href="/admin">

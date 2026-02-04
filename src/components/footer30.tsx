@@ -13,9 +13,10 @@ const NAVIGATION = [
 ]
 
 const SOCIAL_LINKS = [
-  { label: 'Linkedin', href: '#' },
-  { label: 'Twitter', href: '#' },
-  { label: 'Facebook', href: '#' },
+  { label: 'Facebook', href: 'https://www.facebook.com/domnaprobiv' },
+  { label: 'Instagram', href: 'https://www.instagram.com/domnaprobiv' },
+  { label: 'YouTube', href: 'https://www.youtube.com/@domnaprobiv' },
+  { label: 'TikTok', href: 'https://www.tiktok.com/@domnaprobiv' },
 ]
 
 const FOOTER_LINKS = [
@@ -71,9 +72,9 @@ const Footer30 = ({ className }: Footer30Props) => {
           </div>
         </div>
 
-        <div className="dark relative mt-20 flex h-24 w-full flex-col items-center justify-center gap-2 bg-background text-sm tracking-tight text-foreground lg:h-30 lg:flex-row lg:justify-between lg:gap-4 lg:text-base">
+        <div className="dark relative mt-20 flex h-24 w-full flex-col items-center justify-center gap-2 bg-background text-sm tracking-tight text-white lg:h-30 lg:flex-row lg:justify-between lg:gap-4 lg:text-base">
           <div className="relative z-2 flex items-center gap-4 lg:gap-10">
-            <p className="text-foreground/50">&copy; {year} Църква "Дом на пробив"</p>
+            <p>&copy; {year} Църква "Дом на пробив"</p>
           </div>
           <div className="relative z-2 flex items-center gap-4 lg:gap-10">
             {FOOTER_LINKS.map((item, index) => (
