@@ -4,11 +4,12 @@ import React from 'react'
 import { cn } from '@/lib/utils'
 
 const NAVIGATION = [
-  { label: 'Home', href: '#' },
-  { label: 'Collection', href: '#' },
-  { label: 'Projects', href: '#' },
-  { label: 'Pricing', href: '#' },
-  { label: 'Login', href: '#' },
+  { label: 'За нас', href: '/za-nas' },
+  { label: 'Линкове', href: '/linkove' },
+  { label: 'Училище 2026', href: '/uchilishe' },
+  { label: 'Неделни служби', href: '/nedelni-subraniya' },
+  { label: 'Неделно хваление', href: '/hvalenie' },
+  { label: 'Песни', href: '/pesni' },
 ]
 
 const SOCIAL_LINKS = [
@@ -27,16 +28,17 @@ interface Footer30Props {
 }
 
 const Footer30 = ({ className }: Footer30Props) => {
+  const year = new Date().getFullYear()
   return (
     <section className={cn('py-32', className)}>
       <div className="max-w-6xl mx-auto mx-4">
         <div className="flex flex-col justify-between gap-15 lg:flex-row">
           <div className="flex flex-col gap-2">
-            <a className="font-medium tracking-tight" href="">
-              +1 (120) 233-01231
+            <a className="font-medium tracking-tight" href="tel:+359895895916">
+              +359 895 895 916
             </a>
             <a className="relative text-3xl font-semibold tracking-tight lg:text-4xl" href="">
-              yo@shadcnblocks.com
+              info@domnaprobiv.com
             </a>
           </div>
           <div className="flex gap-30">
@@ -68,12 +70,10 @@ const Footer30 = ({ className }: Footer30Props) => {
             </ul>
           </div>
         </div>
-        <div className="mt-10 text-[13vw] font-semibold tracking-tighter lg:text-right lg:text-[10vw]">
-          Shadcnblocks<sup className="font-light">&reg;</sup>{' '}
-        </div>
+
         <div className="dark relative mt-20 flex h-24 w-full flex-col items-center justify-center gap-2 bg-background text-sm tracking-tight text-foreground lg:h-30 lg:flex-row lg:justify-between lg:gap-4 lg:text-base">
           <div className="relative z-2 flex items-center gap-4 lg:gap-10">
-            <p className="text-foreground/50">&copy;2025 shadcnblocks All rights reserved</p>
+            <p className="text-foreground/50">&copy; {year} Църква "Дом на пробив"</p>
           </div>
           <div className="relative z-2 flex items-center gap-4 lg:gap-10">
             {FOOTER_LINKS.map((item, index) => (

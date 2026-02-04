@@ -2,6 +2,7 @@
 
 import AutoScroll from 'embla-carousel-auto-scroll'
 import { ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -238,13 +239,15 @@ const Hero231 = ({ className }: Hero231Props) => {
             doloremque voluptas dolor laudantium eaque ex.
           </p>
           <div className="flex gap-4 xl:mt-32">
-            <Button
-              variant="secondary"
-              className="group flex w-fit items-center justify-center gap-2 rounded-full px-4 py-1 tracking-tight"
-            >
-              <span>Documentation</span>
-              <ArrowRight className="size-4 -rotate-45 transition-all ease-out group-hover:ml-3 group-hover:rotate-0" />
-            </Button>
+            <Link href="/admin">
+              <Button
+                variant="secondary"
+                className="group flex w-fit items-center justify-center gap-2 rounded-full px-4 py-1 tracking-tight"
+              >
+                <span>Вход за служители</span>
+                <ArrowRight className="size-4 -rotate-45 transition-all ease-out group-hover:ml-3 group-hover:rotate-0" />
+              </Button>
+            </Link>
             <Button
               variant="default"
               className="group flex w-fit items-center justify-center gap-2 rounded-full px-4 py-1 tracking-tight"

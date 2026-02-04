@@ -33,10 +33,11 @@ const Navbar22 = ({ className }: Navbar22Props) => {
   }, [])
 
   const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'About', href: '#about' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Начало', href: '/' },
+    { name: 'За нас', href: '/za-nas' },
+    { name: 'Ресурси', href: '/resursi' },
+    { name: 'Контакти', href: '/kontakti' },
+    { name: 'Дарение', href: '/darenie' },
   ]
 
   return (
@@ -47,7 +48,7 @@ const Navbar22 = ({ className }: Navbar22Props) => {
             <div className="flex h-16 items-center justify-between">
               <div className="flex items-center gap-2 md:hidden">
                 <img
-                  src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg"
+                  src="https://asset.cooksa.com/media/avatar-logo.jpg"
                   className="max-h-8"
                   alt="shadcnblocks.com"
                 />
@@ -59,8 +60,8 @@ const Navbar22 = ({ className }: Navbar22Props) => {
               <div className="absolute left-1/2 hidden -translate-x-1/2 transform md:block">
                 <a href="/" className="flex items-center gap-2">
                   <img
-                    src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg"
-                    className="max-h-8"
+                    src="https://asset.cooksa.com/media/avatar-logo.jpg"
+                    className="max-h-8 rounded-sm"
                     alt="shadcnblocks.com"
                   />
                   <span className="text-lg font-semibold tracking-tighter">
