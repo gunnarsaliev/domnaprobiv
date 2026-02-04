@@ -1,6 +1,7 @@
 'use client'
 
 import { Menu } from 'lucide-react'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 import { cn } from '@/lib/utils'
@@ -41,8 +42,8 @@ const Navbar22 = ({ className }: Navbar22Props) => {
     }
 
     fetchWeather()
-    // Refresh weather every 10 minutes
-    const weatherInterval = setInterval(fetchWeather, 10 * 60 * 1000)
+    // Refresh weather every 30 minutes
+    const weatherInterval = setInterval(fetchWeather, 30 * 60 * 1000)
     return () => clearInterval(weatherInterval)
   }, [])
 
@@ -67,19 +68,19 @@ const Navbar22 = ({ className }: Navbar22Props) => {
                   alt="shadcnblocks.com"
                 />
                 <span className="text-lg font-semibold tracking-tighter">
-                  Църква "Дом на пробив"
+                  Църква &quot;Дом на пробив&quot;
                 </span>
               </div>
 
               <div className="absolute left-1/2 hidden -translate-x-1/2 transform md:block">
-                <a href="/" className="flex items-center gap-2">
+                <Link href="/" className="flex items-center gap-2">
                   <img
                     src="https://asset.cooksa.com/media/avatar-logo.jpg"
                     className="max-h-8 rounded-sm"
                     alt="shadcnblocks.com"
                   />
                   <span className="text-xl font-semibold tracking-tighter"> Дом на пробив</span>
-                </a>
+                </Link>
               </div>
               <div className="hidden items-center space-x-2 text-sm text-muted-foreground md:flex">
                 <span className="font-medium">Русе</span>
@@ -127,7 +128,7 @@ const Navbar22 = ({ className }: Navbar22Props) => {
 
                     <div className="m-4 flex flex-col space-y-6">
                       <div className="ml-3">
-                        <a
+                        <Link
                           href="/"
                           className="flex items-center justify-start gap-2 text-2xl font-bold text-foreground"
                           onClick={() => setIsOpen(false)}
@@ -137,7 +138,7 @@ const Navbar22 = ({ className }: Navbar22Props) => {
                             className="max-h-8"
                             alt="shadcnblocks.com"
                           />
-                        </a>
+                        </Link>
                       </div>
                       <div className="flex flex-col space-y-4">
                         {navLinks.map((link) => (

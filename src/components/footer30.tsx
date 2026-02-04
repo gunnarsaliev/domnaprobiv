@@ -74,7 +74,7 @@ const Footer30 = ({ className }: Footer30Props) => {
 
         <div className="dark relative mt-20 flex h-24 w-full flex-col items-center justify-center gap-2 bg-background text-sm tracking-tight text-white lg:h-30 lg:flex-row lg:justify-between lg:gap-4 lg:text-base">
           <div className="relative z-2 flex items-center gap-4 lg:gap-10">
-            <p>&copy; {year} Църква "Дом на пробив"</p>
+            <p>&copy; {year} Църква &quot;Дом на пробив&quot;</p>
           </div>
           <div className="relative z-2 flex items-center gap-4 lg:gap-10">
             {FOOTER_LINKS.map((item, index) => (

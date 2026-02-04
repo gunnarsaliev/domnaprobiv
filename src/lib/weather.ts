@@ -15,7 +15,7 @@ interface OpenMeteoResponse {
   }
 }
 
-const CACHE_DURATION = 10 * 60 * 1000 // 10 minutes
+const CACHE_DURATION = 30 * 60 * 1000 // 30 minutes
 const RUSE_COORDS = { latitude: 43.8356, longitude: 25.9758 }
 
 let cachedWeather: WeatherData | null = null

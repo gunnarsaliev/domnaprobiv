@@ -233,7 +233,7 @@ const Hero231 = ({ className }: Hero231Props) => {
           </Button>
           <h1 className="mt-12 font-calSans text-5xl font-medium tracking-tight text-foreground md:text-7xl">
             Църква <br />
-            "Дом на пробив"
+            &quot;Дом на пробив&quot;
           </h1>
           <p className="mt-3 max-w-lg text-muted-foreground/80">
             Да издигаме името на Исус в цялата прелест на Неговата личност и съвършенството.
