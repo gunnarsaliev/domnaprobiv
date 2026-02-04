@@ -1,51 +1,46 @@
-"use client";
+'use client'
 
-import { Menu } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Menu } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils'
 
-import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Button } from '@/components/ui/button'
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 
 interface Navbar22Props {
-  className?: string;
+  className?: string
 }
 
 const Navbar22 = ({ className }: Navbar22Props) => {
-  const [currentTime, setCurrentTime] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
+  const [currentTime, setCurrentTime] = useState('')
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     const updateTime = () => {
-      const now = new Date();
-      const timeString = now.toLocaleTimeString("en-US", {
-        hour: "numeric",
-        minute: "2-digit",
-        hour12: true,
-      });
-      setCurrentTime(timeString);
-    };
+      const now = new Date()
+      const timeString = now.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+      })
+      setCurrentTime(timeString)
+    }
 
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
+    updateTime()
+    const interval = setInterval(updateTime, 1000)
+    return () => clearInterval(interval)
+  }, [])
 
   const navLinks = [
-    { name: "Home", href: "#" },
-    { name: "About", href: "#about" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "Contact", href: "#contact" },
-  ];
+    { name: 'Home', href: '#' },
+    { name: 'About', href: '#about' },
+    { name: 'Pricing', href: '#pricing' },
+    { name: 'Contact', href: '#contact' },
+  ]
 
   return (
-    <section className={cn("bg-background py-4 text-foreground", className)}>
+    <section className={cn('bg-background py-4 text-foreground', className)}>
       <div className="container">
         <nav className="w-full border-border">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -57,7 +52,7 @@ const Navbar22 = ({ className }: Navbar22Props) => {
                   alt="shadcnblocks.com"
                 />
                 <span className="text-lg font-semibold tracking-tighter">
-                  Shadcnblocks.com
+                  Църква "Дом на пробив"
                 </span>
               </div>
 
@@ -69,12 +64,13 @@ const Navbar22 = ({ className }: Navbar22Props) => {
                     alt="shadcnblocks.com"
                   />
                   <span className="text-lg font-semibold tracking-tighter">
-                    Shadcnblocks.com
+                    {' '}
+                    Църква Дом на пробив
                   </span>
                 </a>
               </div>
               <div className="hidden items-center space-x-2 text-sm text-muted-foreground md:flex">
-                <span className="font-medium">Brisbane</span>
+                <span className="font-medium">Русе</span>
                 <span className="text-muted-foreground">/</span>
 
                 <span className="font-medium">{currentTime}</span>
@@ -140,7 +136,7 @@ const Navbar22 = ({ className }: Navbar22Props) => {
                       </div>
                       <div className="border-t border-border pt-6">
                         <div className="text-center text-sm text-muted-foreground">
-                          <div className="font-medium">Brisbane</div>
+                          <div className="font-medium">Ruse</div>
                           <div className="mt-1">{currentTime}</div>
                         </div>
                       </div>
@@ -153,7 +149,7 @@ const Navbar22 = ({ className }: Navbar22Props) => {
         </nav>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export { Navbar22 };
+export { Navbar22 }
