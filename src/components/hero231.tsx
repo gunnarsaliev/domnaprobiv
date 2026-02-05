@@ -2,6 +2,7 @@
 
 import AutoScroll from 'embla-carousel-auto-scroll'
 import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules'
@@ -15,7 +16,7 @@ import 'swiper/css/effect-cards'
 import { cn } from '@/lib/utils'
 
 import { Button } from '@/components/ui/button'
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
+import { Carousel } from '@/components/ui/carousel'
 
 interface Hero231Props {
   className?: string
@@ -58,119 +59,6 @@ const Hero231 = ({ className }: Hero231Props) => {
       src: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random2.jpeg',
       alt: 'Portrait of Sarah Chen in studio setting',
       name: 'Sarah Chen',
-    },
-  ]
-
-  const logos = [
-    {
-      id: 'logo-1',
-      description: 'Logo 1',
-      image: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/astro-wordmark.svg',
-      className: 'h-7 w-auto',
-    },
-    {
-      id: 'logo-2',
-      description: 'Logo 2',
-      image:
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-1.svg',
-      className: 'h-7 w-auto',
-    },
-    {
-      id: 'logo-3',
-      description: 'Logo 3',
-      image:
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-2.svg',
-      className: 'h-7 w-auto',
-    },
-    {
-      id: 'logo-4',
-      description: 'Logo 4',
-      image:
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-3.svg',
-      className: 'h-7 w-auto',
-    },
-    {
-      id: 'logo-5',
-      description: 'Logo 5',
-      image:
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-4.svg',
-      className: 'h-7 w-auto',
-    },
-    {
-      id: 'logo-6',
-      description: 'Logo 6',
-      image:
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-5.svg',
-      className: 'h-5 w-auto',
-    },
-    {
-      id: 'logo-7',
-      description: 'Logo 7',
-      image:
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-6.svg',
-      className: 'h-7 w-auto',
-    },
-    {
-      id: 'logo-8',
-      description: 'Logo 8',
-      image:
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-7.svg',
-      className: 'h-7 w-auto',
-    },
-    {
-      id: 'logo-1',
-      description: 'Logo 1',
-      image: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/astro-wordmark.svg',
-      className: 'h-7 w-auto',
-    },
-    {
-      id: 'logo-2',
-      description: 'Logo 2',
-      image:
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-1.svg',
-      className: 'h-7 w-auto',
-    },
-    {
-      id: 'logo-3',
-      description: 'Logo 3',
-      image:
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-2.svg',
-      className: 'h-7 w-auto',
-    },
-    {
-      id: 'logo-4',
-      description: 'Logo 4',
-      image:
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-3.svg',
-      className: 'h-7 w-auto',
-    },
-    {
-      id: 'logo-5',
-      description: 'Logo 5',
-      image:
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-4.svg',
-      className: 'h-7 w-auto',
-    },
-    {
-      id: 'logo-6',
-      description: 'Logo 6',
-      image:
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-5.svg',
-      className: 'h-5 w-auto',
-    },
-    {
-      id: 'logo-7',
-      description: 'Logo 7',
-      image:
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-6.svg',
-      className: 'h-7 w-auto',
-    },
-    {
-      id: 'logo-8',
-      description: 'Logo 8',
-      image:
-        'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-7.svg',
-      className: 'h-7 w-auto',
     },
   ]
 
@@ -228,7 +116,7 @@ const Hero231 = ({ className }: Hero231Props) => {
             variant="secondary"
             className="items-left group flex w-fit justify-center gap-3 rounded-full bg-muted/70 px-5 py-1"
           >
-            <span className="size-2.5 rounded-full bg-red-500" />
+            <span className="size-2.5 rounded-full bg-green-500" />
             На живо всяка неделя от 10:30ч.
           </Button>
           <h1 className="mt-12 font-calSans text-5xl font-medium tracking-tight text-foreground md:text-7xl">
@@ -304,11 +192,15 @@ const Hero231 = ({ className }: Hero231Props) => {
               >
                 {images.map((image, index) => (
                   <SwiperSlide key={index}>
-                    <img
-                      className="h-full w-full overflow-hidden rounded-3xl object-cover shadow-lg"
-                      src={image.src}
-                      alt={image.alt}
-                    />
+                    <div className="relative h-full w-full">
+                      <Image
+                        className="overflow-hidden rounded-3xl object-cover shadow-lg"
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </div>
                   </SwiperSlide>
                 ))}
               </Swiper>

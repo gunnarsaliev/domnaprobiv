@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok, FaYoutube } from 'react-icons/fa'
+import { FaFacebook, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa'
 import { Logo } from '../layout/logo'
 import Link from 'next/link'
 

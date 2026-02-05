@@ -11,11 +11,13 @@ interface feature {
   description: string
   link: string
   gradient: string
+  time: string
 }
 
 const FEATURES: Array<feature> = [
   {
-    title: 'AI-powered meeting assistant',
+    title: 'Неделна служба',
+    time: 'неделя от 10:30ч',
     description:
       'Schedule, summarize, and follow up on meetings automatically using our AI-driven productivity suite.',
     link: '#',
@@ -23,6 +25,7 @@ const FEATURES: Array<feature> = [
   },
   {
     title: 'Global CDN optimization',
+    time: 'optimization',
     description:
       'Accelerate your site’s performance with intelligent edge caching and worldwide server coverage.',
     link: '#',
@@ -30,6 +33,7 @@ const FEATURES: Array<feature> = [
   },
   {
     title: 'Real-time user analytics',
+    time: 'analytics',
     description:
       'Track user behavior across platforms with live dashboards and actionable segmentation tools.',
     link: '#',
@@ -37,6 +41,7 @@ const FEATURES: Array<feature> = [
   },
   {
     title: 'Automated data cleaning',
+    time: 'cleaning',
     description:
       'Enhance your datasets with AI enrichment, validation pipelines, and smart duplicate detection.',
     link: '#',
@@ -87,7 +92,7 @@ const Feature221 = ({ className }: Feature221Props) => {
                   </h3>
                 </CardTitle>
                 <Badge className="bg-muted">
-                  <p className="text-sm text-foreground">Feature</p>
+                  <p className="text-sm text-foreground">{feature.time}</p>
                 </Badge>
               </CardHeader>
               <CardContent className="p-0">

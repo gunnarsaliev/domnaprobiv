@@ -2,20 +2,43 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 import Image from 'next/image'
 import Link from 'next/link'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
+// Type definitions for richText structure
+interface RichTextChild {
+  text?: string
+  children?: RichTextChild[]
+  format?: number
+  [key: string]: unknown
+}
+
+interface RichTextNode {
+  type?: string
+  text?: string
+  children?: RichTextChild[]
+  format?: number
+  tag?: number
+  listType?: string
+  [key: string]: unknown
+}
+
+interface RichTextRoot {
+  type: string
+  children: RichTextNode[]
+  [key: string]: unknown
+}
+
+interface RichText {
+  root: RichTextRoot
+  [key: string]: unknown
+}
+
 // Helper function to extract text from richText
-function extractTextFromRichText(richText: any): string {
+function extractTextFromRichText(richText: RichText | string): string {
   if (!richText) return ''
   if (typeof richText === 'string') return richText
 
@@ -23,16 +46,16 @@ function extractTextFromRichText(richText: any): string {
   try {
     if (richText.root?.children) {
       return richText.root.children
-        .map((child: any) => {
+        .map((child: RichTextNode) => {
           if (child.children) {
-            return child.children.map((c: any) => c.text || '').join(' ')
+            return child.children.map((c: RichTextChild) => c.text || '').join(' ')
           }
           return child.text || ''
         })
         .join(' ')
         .slice(0, 150)
     }
-  } catch (e) {
+  } catch (_error) {
     return ''
   }
   return ''
@@ -72,7 +95,8 @@ export default async function ServicesPage() {
               <CardTitle className="text-xl">{ministry.name}</CardTitle>
               {ministry.description && (
                 <CardDescription className="line-clamp-3">
-                  {extractTextFromRichText(ministry.description) || 'Научете повече за това служене'}
+                  {extractTextFromRichText(ministry.description) ||
+                    'Научете повече за това служене'}
                 </CardDescription>
               )}
             </CardHeader>

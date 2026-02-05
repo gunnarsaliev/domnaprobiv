@@ -13,6 +13,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'media.domnaprobiv.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'deifkwefumgah.cloudfront.net',
+      },
     ],
   },
   webpack: (webpackConfig) => {

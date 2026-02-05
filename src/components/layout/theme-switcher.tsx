@@ -8,11 +8,9 @@ import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
-  DropdownMenuSeparator,
+  DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
 export function ThemeSwitcher() {
@@ -30,17 +28,6 @@ export function ThemeSwitcher() {
         <span className="sr-only">Toggle theme</span>
       </Button>
     )
-  }
-
-  const getThemeIcon = () => {
-    switch (theme) {
-      case 'light':
-        return <Sun className="h-[1.2rem] w-[1.2rem]" />
-      case 'dark':
-        return <Moon className="h-[1.2rem] w-[1.2rem]" />
-      default:
-        return <Monitor className="h-[1.2rem] w-[1.2rem]" />
-    }
   }
 
   return (

@@ -29,7 +29,7 @@ interface MapProps {
     position: [number, number]
     popup?: string
   }>
-  onMapReady?: (map: any) => void
+  onMapReady?: (map: unknown) => void
 }
 
 export default function Map(props: MapProps) {

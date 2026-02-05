@@ -1,6 +1,7 @@
 'use client'
 
 import { Menu } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
@@ -62,10 +63,12 @@ const Navbar22 = ({ className }: Navbar22Props) => {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between">
               <div className="flex items-center gap-2 md:hidden">
-                <img
+                <Image
                   src="https://asset.cooksa.com/media/avatar-logo.jpg"
                   className="max-h-8"
                   alt="shadcnblocks.com"
+                  width={32}
+                  height={32}
                 />
                 <span className="text-lg font-semibold tracking-tighter">
                   Църква &quot;Дом на пробив&quot;
@@ -74,10 +77,12 @@ const Navbar22 = ({ className }: Navbar22Props) => {
 
               <div className="absolute left-1/2 hidden -translate-x-1/2 transform md:block">
                 <Link href="/" className="flex items-center gap-2">
-                  <img
+                  <Image
                     src="https://asset.cooksa.com/media/avatar-logo.jpg"
                     className="max-h-8 rounded-sm"
                     alt="shadcnblocks.com"
+                    width={32}
+                    height={32}
                   />
                   <span className="text-xl font-semibold tracking-tighter"> Дом на пробив</span>
                 </Link>
@@ -133,10 +138,12 @@ const Navbar22 = ({ className }: Navbar22Props) => {
                           className="flex items-center justify-start gap-2 text-2xl font-bold text-foreground"
                           onClick={() => setIsOpen(false)}
                         >
-                          <img
+                          <Image
                             src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg"
                             className="max-h-8"
                             alt="shadcnblocks.com"
+                            width={32}
+                            height={32}
                           />
                         </Link>
                       </div>
