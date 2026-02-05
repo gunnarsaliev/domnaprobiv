@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Hero231 />
-      <Feature239 />
-      <Feature221 />
-      <Feature140 />
+      {/* <Feature239 /> */}
+      {/* <Feature221 /> */}
+      {/* <Feature140 /> */}
       <div id="map" className="max-w-6xl mx-auto px-4">
         <LocationsSection />
         <Cta15 />

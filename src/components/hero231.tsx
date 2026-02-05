@@ -111,7 +111,7 @@ const Hero231 = ({ className }: Hero231Props) => {
     <section className={cn('py-6 ', className)}>
       <style>{css}</style>
       <div className="max-w-6xl mx-auto mx-4 mt-4 flex flex-col items-center justify-center gap-4 overflow-hidden text-left xl:mt-14 xl:flex-row xl:overflow-visible">
-        <div className="w-full space-y-10 xl:w-1/2">
+        <div className="w-full space-y-10 xl:w-1/2 px-4">
           <Button
             variant="secondary"
             className="items-left group flex w-fit justify-center gap-3 rounded-full bg-muted/70 px-5 py-1"
@@ -126,7 +126,7 @@ const Hero231 = ({ className }: Hero231Props) => {
           <p className="mt-3 max-w-lg text-muted-foreground/80">
             Да издигаме името на Исус в цялата прелест на Неговата личност и съвършенството.
           </p>
-          <div className="flex gap-4 xl:mt-32">
+          <div className="flex gap-4 mt-4s xl:mt-32">
             <Link href="/admin">
               <Button
                 variant="secondary"

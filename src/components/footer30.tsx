@@ -32,8 +32,8 @@ const Footer30 = ({ className }: Footer30Props) => {
   const year = new Date().getFullYear()
   return (
     <section className={cn('py-32', className)}>
-      <div className="max-w-6xl mx-auto mx-4">
-        <div className="flex flex-col justify-between gap-15 lg:flex-row">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col justify-between gap-15 lg:flex-row px-4">
           <div className="flex flex-col gap-2">
             <a className="font-medium tracking-tight" href="tel:+359895895916">
               +359 895 895 916

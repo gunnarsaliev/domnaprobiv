@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button'
 const Feature239 = () => {
   return (
     <section className="bg-background py-32">
-      <div className="relative max-w-6xl mx-auto mx-4 flex flex-col items-center px-0! lg:pt-8">
+      <div className="relative max-w-6xl mx-auto mx-4e   flex flex-col items-center px-0! lg:pt-8">
         <DottedDiv>
           <div className="grid lg:grid-cols-2">
             {/* Left Content */}
