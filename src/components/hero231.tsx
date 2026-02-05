@@ -136,13 +136,15 @@ const Hero231 = ({ className }: Hero231Props) => {
                 <ArrowRight className="size-4 -rotate-45 transition-all ease-out group-hover:ml-3 group-hover:rotate-0" />
               </Button>
             </Link>
-            <Button
-              variant="default"
-              className="group flex w-fit items-center justify-center gap-2 rounded-full px-4 py-1 tracking-tight"
-            >
-              <span>Get Started</span>
-              <ArrowRight className="size-4 -rotate-45 transition-all ease-out group-hover:ml-3 group-hover:rotate-0" />
-            </Button>
+            <Link href="#map">
+              <Button
+                variant="default"
+                className="group flex w-fit items-center justify-center gap-2 rounded-full px-4 py-1 tracking-tight"
+              >
+                <span>Намери ни</span>
+                <ArrowRight className="size-4 -rotate-45 transition-all ease-out group-hover:ml-3 group-hover:rotate-0" />
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="relative mt-36 h-145 w-full xl:mt-0 xl:w-3/5">
