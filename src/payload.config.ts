@@ -44,6 +44,8 @@ export default buildConfig({
     s3Storage({
       collections: {
         media: true,
+        songs: true,
+        worship: true,
       },
       bucket: process.env.S3_BUCKET!,
       config: {
