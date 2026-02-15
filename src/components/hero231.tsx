@@ -31,35 +31,40 @@ const Hero231 = ({ className }: Hero231Props) => {
 
   const images = [
     {
-      src: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random11.jpeg',
+      src: 'https://domnaprobiv.com/api/media/file/dom-na-probiv-ruse-1.jpg',
       alt: 'Portrait of Joanna Doe in urban setting',
       name: 'Joanna Doe',
     },
     {
-      src: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random1.jpeg',
+      src: 'https://domnaprobiv.com/api/media/file/dom-na-probiv-ruse-2.jpg',
       alt: 'Portrait of Joan Doe in natural lighting',
       name: 'Joan Doe',
     },
     {
-      src: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random2.jpeg',
+      src: 'https://domnaprobiv.com/api/media/file/dom-na-probiv-ruse-3.jpg',
       alt: 'Portrait of Sarah Chen in studio setting',
       name: 'Sarah Chen',
     },
     {
-      src: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random11.jpeg',
+      src: 'https://domnaprobiv.com/api/media/file/dom-na-probiv-ruse-8.jpg',
       alt: 'Portrait of Joanna Doe in urban setting',
       name: 'Joanna Doe',
     },
     {
-      src: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random1.jpeg',
+      src: 'https://domnaprobiv.com/api/media/file/dom-na-probiv-ruse-5.jpg',
       alt: 'Portrait of Joan Doe in natural lighting',
       name: 'Joan Doe',
     },
     {
-      src: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random2.jpeg',
+      src: 'https://domnaprobiv.com/api/media/file/dom-na-probiv-ruse-6.jpg',
       alt: 'Portrait of Sarah Chen in studio setting',
       name: 'Sarah Chen',
     },
+    // {
+    //   src: 'https://domnaprobiv.com/api/media/file/dom-na-probiv-ruse-7.jpg',
+    //   alt: 'Portrait of Sarah Chen in studio setting',
+    //   name: 'Sarah Chen',
+    // },
   ]
 
   const css = `

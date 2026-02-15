@@ -10,25 +10,25 @@ export function LocationsSection() {
       name: 'Неделна служба',
       time: 'от 10:30ч в Неделя',
       address: 'Русе Център, ул. „Княз Ал. Дондуков-Корсаков“ № 5-1',
-      image: 'https://media.domnaprobiv.com/images/nedelna.jpg',
+      image: 'https://domnaprobiv.com/api/media/file/nedelna.webp',
     },
     {
       name: 'Молитва',
       time: 'от 19:00 часа в Петък',
       address: 'Русе Център, ул. „Княз Ал. Дондуков-Корсаков“ № 5-1',
-      image: 'https://media.domnaprobiv.com/images/molitva.jpg',
+      image: 'https://domnaprobiv.com/api/media/file/molitva.webp',
     },
     {
       name: 'Неделно училище',
       time: 'от 11:30 часа в Неделя',
       address: 'Русе Център, ул. „Княз Ал. Дондуков-Корсаков“ № 5-1',
-      image: 'https://media.domnaprobiv.com/images/nedelno-uchilishte.png',
+      image: 'https://domnaprobiv.com/api/media/file/nedelno-uchilishte.webp',
     },
     {
       name: 'Младежко събрание',
       time: 'от 19:00 часа в Понеделник',
       address: 'Русе Център, ул. „Княз Ал. Дондуков-Корсаков“ № 5-1',
-      image: 'https://media.domnaprobiv.com/images/mladejko.png',
+      image: 'https://domnaprobiv.com/api/media/file/mladejko.webp',
     },
   ]
 

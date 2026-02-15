@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 const NAVIGATION = [
   { label: 'За нас', href: '/za-nas' },
   { label: 'Линкове', href: '/linkove' },
-  { label: 'Училище 2026', href: '/uchilishe' },
+  // { label: 'Училище 2026', href: '/uchilishe' },
   { label: 'Неделни служби', href: '/nedelni-subraniya' },
   { label: 'Неделно хваление', href: '/hvalenie' },
   { label: 'Песни', href: '/pesni' },
@@ -20,8 +20,8 @@ const SOCIAL_LINKS = [
 ]
 
 const FOOTER_LINKS = [
-  { label: 'Privacy Policy', href: '#' },
-  { label: 'Terms of Service', href: '#' },
+  { label: 'Политика за поверителност', href: '/privacy' },
+  { label: 'Условия за ползване', href: '/terms' },
 ]
 
 interface Footer30Props {

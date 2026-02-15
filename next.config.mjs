@@ -11,7 +11,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'media.domnaprobiv.com',
+        hostname: 'domnaprobiv.com',
       },
       {
         protocol: 'https',

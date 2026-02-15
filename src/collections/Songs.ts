@@ -29,6 +29,20 @@ export const Songs: CollectionConfig = {
     },
   ],
   upload: {
-    mimeTypes: ['audio/mpeg', 'audio/mp3', 'audio/wav', 'audio/x-wav', 'audio/wave'],
+    mimeTypes: [
+      'audio/mpeg',
+      'audio/mp3',
+      'audio/mpg',
+      'audio/wav',
+      'audio/x-wav',
+      'audio/wave',
+      'audio/ogg',
+      'audio/webm',
+      'audio/x-m4a',
+      'audio/mp4',
+      'audio/aac',
+      'audio/flac',
+      'text/plain', // MP3 files are sometimes fingerprinted as text/plain
+    ],
   },
 }

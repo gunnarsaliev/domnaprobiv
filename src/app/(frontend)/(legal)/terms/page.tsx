@@ -3,77 +3,129 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service',
-  description: 'Read our terms of service and usage agreement',
+  title: 'Условия за ползване',
+  description: 'Прочетете условията за ползване на уебсайта на Църква „Дом на пробив" Русе',
 }
 
 export default function TermsPage() {
   return (
     <>
-      <h1 className="text-4xl font-bold text-foreground mb-8">Terms of Service</h1>
+      <h1 className="text-4xl font-bold text-foreground mb-8">Условия за ползване</h1>
 
-      <p className="text-muted-foreground mb-6">Last updated: {new Date().toLocaleDateString()}</p>
+      <p className="text-muted-foreground mb-6">Последна актуализация: 15 февруари 2026 г.</p>
 
       <div className="mb-8">
-        <h2 className="text-2xl font-semibold text-foreground mb-4">1. Acceptance of Terms</h2>
+        <h2 className="text-2xl font-semibold text-foreground mb-4">1. Приемане на условията</h2>
         <p className="text-muted-foreground">
-          By accessing and using this website, you accept and agree to be bound by the terms and
-          provision of this agreement.
+          С достъпа и използването на уебсайта на Църква „Дом на пробив" Русе (
+          <strong>domnaprobiv.com</strong>) вие приемате и се съгласявате с настоящите условия за
+          ползване. Ако не сте съгласни с тях, моля не използвайте уебсайта.
         </p>
       </div>
 
       <div className="mb-8">
-        <h2 className="text-2xl font-semibold text-foreground mb-4">2. Use License</h2>
+        <h2 className="text-2xl font-semibold text-foreground mb-4">2. Описание на уебсайта</h2>
         <p className="text-muted-foreground">
-          Permission is granted to temporarily download one copy of the materials (information or
-          software) on our website for personal, non-commercial transitory viewing only.
-        </p>
-      </div>
-
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold text-foreground mb-4">3. Disclaimer</h2>
-        <p className="text-muted-foreground">
-          The materials on our website are provided on an &apos;as is&apos; basis. We make no
-          warranties, expressed or implied, and hereby disclaim and negate all other warranties
-          including, without limitation, implied warranties or conditions of merchantability,
-          fitness for a particular purpose, or non-infringement of intellectual property or other
-          violation of rights.
+          Уебсайтът предоставя информация за Църква „Дом на пробив" Русе – включително нейните
+          служения, богослужения, прославна музика, ресурси и начини за контакт. Съдържанието е
+          с религиозен и информационен характер и е предназначено за широката общественост.
         </p>
       </div>
 
       <div className="mb-8">
         <h2 className="text-2xl font-semibold text-foreground mb-4">
-          4. Credit System and Payments
+          3. Интелектуална собственост
         </h2>
-        <p className="text-muted-foreground mb-4">
-          Our service operates on a credit-based system. Credits purchased through our platform are
-          valid for 2 years from the date of purchase. All payments are processed securely through
-          Stripe, our payment processing partner.
-        </p>
-        <p className="text-muted-foreground mb-4">
-          Once a payment is successfully processed, credits will be immediately added to your
-          account. We do not offer refunds for purchased credits. The price and availability of
-          credit packages may change without prior notice.
+        <p className="text-muted-foreground mb-2">
+          Всички материали на уебсайта – текстове, изображения, аудио и видео записи, лога и
+          дизайн – са собственост на Църква „Дом на пробив" Русе или са използвани с разрешение
+          на съответните носители на права.
         </p>
         <p className="text-muted-foreground">
-          Free credits may be provided as part of promotional offers or monthly allocations. These
-          credits are subject to different terms and expiration periods, which will be clearly
-          communicated at the time they are issued.
+          Разрешено е личното, нетърговско ползване на материалите. Всяко копиране,
+          разпространение, публично излъчване или търговско използване без предварително писмено
+          разрешение е забранено.
         </p>
       </div>
 
       <div className="mb-8">
-        <h2 className="text-2xl font-semibold text-foreground mb-4">5. Limitations</h2>
+        <h2 className="text-2xl font-semibold text-foreground mb-4">4. Допустимо ползване</h2>
+        <p className="text-muted-foreground mb-2">При ползването на уебсайта се задължавате да:</p>
+        <ul className="list-disc pl-6 text-muted-foreground space-y-1">
+          <li>Спазвате приложимото законодателство на Република България и ЕС</li>
+          <li>Не разпространявате незаконно или вредно съдържание</li>
+          <li>
+            Не предприемате действия, които могат да наредят работата на уебсайта или да
+            навредят на трети лица
+          </li>
+          <li>Не се опитвате да получите неразрешен достъп до системите или данните ни</li>
+        </ul>
+      </div>
+
+      <div className="mb-8">
+        <h2 className="text-2xl font-semibold text-foreground mb-4">5. Връзки към трети страни</h2>
         <p className="text-muted-foreground">
-          In no event shall we or our suppliers be liable for any damages (including, without
-          limitation, damages for loss of data or profit, or due to business interruption) arising
-          out of the use or inability to use the materials on our website.
+          Уебсайтът може да съдържа препратки към външни сайтове (напр. YouTube, TikTok). Ние не
+          носим отговорност за съдържанието или политиките за поверителност на тези сайтове.
+          Включването на дадена връзка не означава нашето одобрение на съответния сайт.
+        </p>
+      </div>
+
+      <div className="mb-8">
+        <h2 className="text-2xl font-semibold text-foreground mb-4">6. Отказ от гаранции</h2>
+        <p className="text-muted-foreground">
+          Материалите на уебсайта се предоставят „такива, каквито са", без каквито и да е
+          изрични или подразбиращи се гаранции. Полагаме усилия информацията да бъде точна и
+          актуална, но не гарантираме нейната пълнота или пригодност за конкретна цел.
+        </p>
+      </div>
+
+      <div className="mb-8">
+        <h2 className="text-2xl font-semibold text-foreground mb-4">
+          7. Ограничение на отговорността
+        </h2>
+        <p className="text-muted-foreground">
+          В максималната степен, допустима от закона, Църква „Дом на пробив" Русе не носи
+          отговорност за преки или косвени вреди, произтичащи от използването или невъзможността
+          за използване на уебсайта, включително загуба на данни или прекъсване на достъпа.
+        </p>
+      </div>
+
+      <div className="mb-8">
+        <h2 className="text-2xl font-semibold text-foreground mb-4">8. Приложимо право</h2>
+        <p className="text-muted-foreground">
+          Настоящите условия се уреждат от законодателството на Република България. Всички
+          спорове, произтичащи от или свързани с тях, се отнасят за разрешаване от компетентния
+          български съд.
+        </p>
+      </div>
+
+      <div className="mb-8">
+        <h2 className="text-2xl font-semibold text-foreground mb-4">9. Промени в условията</h2>
+        <p className="text-muted-foreground">
+          Запазваме правото си да изменяме тези условия по всяко време. Промените влизат в сила
+          от момента на публикуването им на тази страница. Продължаването на използването на
+          уебсайта след публикуването означава приемане на актуализираните условия.
+        </p>
+      </div>
+
+      <div className="mb-8">
+        <h2 className="text-2xl font-semibold text-foreground mb-4">10. Контакти</h2>
+        <p className="text-muted-foreground">
+          При въпроси относно тези условия, моля свържете се с нас:
+          <br />
+          Имейл:{' '}
+          <a href="mailto:info@domnaprobiv.com" className="underline">
+            info@domnaprobiv.com
+          </a>
+          <br />
+          Църква „Дом на пробив", Русе, България
         </p>
       </div>
 
       <div className="mt-12 text-center">
         <Button asChild>
-          <Link href="/">Return to Home</Link>
+          <Link href="/">Към началната страница</Link>
         </Button>
       </div>
     </>
