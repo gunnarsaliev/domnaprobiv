@@ -1,4 +1,5 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
+import { resendAdapter } from '@payloadcms/email-resend'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { s3Storage } from '@payloadcms/storage-s3'
 import path from 'path'
@@ -18,6 +19,11 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
+  email: resendAdapter({
+    defaultFromAddress: 'noreply@contact.domnaprobiv.com',
+    defaultFromName: 'Дом на пробив',
+    apiKey: process.env.RESEND_API_KEY || '',
+  }),
   admin: {
     user: Users.slug,
     importMap: {

@@ -1,6 +1,7 @@
 import { CircleArrowRight, Files, Settings } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
+import Image from 'next/image'
 
 interface About1Props {
   className?: string
@@ -18,14 +19,17 @@ const About1 = ({ className }: About1Props) => {
           </p>
         </div>
         <div className="grid gap-6 md:grid-cols-2">
-          <img
+          <Image
+            width={500}
+            height={500}
             src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
             alt="placeholder"
             className="size-full max-h-96 rounded-2xl object-cover"
           />
-          <div className="flex flex-col justify-between gap-10 rounded-2xl bg-muted bg-[url('https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/christin-hume-Hcfwew744z4-unsplash.jpg')] bg-cover bg-center p-10">
-            <p className="text-sm font-semibold text-white">Нашата мисия</p>
-            <p className="text-lg font-medium text-white">
+          <div className="relative flex flex-col justify-between gap-10 rounded-2xl bg-[url('/api/media/file/nedelna-slujba.jpg')] bg-cover bg-center p-10">
+            <div className="absolute inset-0 rounded-2xl bg-black/55" />
+            <p className="relative text-sm font-semibold text-white">Нашата мисия</p>
+            <p className="relative text-lg font-medium text-white">
               Да изградим общността на църквата в центъра на града и да създадем място за духовен
               растеж и обновление.
             </p>

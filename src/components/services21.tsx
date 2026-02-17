@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
 import { BorderButton } from '@/components/shadcnblocks/border-button'
@@ -29,18 +30,21 @@ const Services21 = ({ className }: Services21Props) => {
   const services = [
     {
       id: '{01}',
+      url: '/nedelni-subraniya',
       title: 'Неделни служби',
       image: '/api/media/file/nedelna-slujba.jpg',
       description: 'Слушай минали проповеди',
     },
     {
       id: '{02}',
+      url: '/hvalenie',
       title: 'Хваление',
       image: '/api/media/file/IMG_20251116_150809.jpg',
       description: 'Това са песните от службите за хваление през неделните служби',
     },
     {
       id: '{03}',
+      url: '/pesni',
       title: 'Песни',
       image: '/api/media/file/yumu-ifreZpMoukk-unsplash.jpg',
       description: 'Индивидуални песни от служението за хваление',
@@ -116,17 +120,22 @@ const Services21 = ({ className }: Services21Props) => {
                     'cursor-pointer border-b border-foreground/20 py-8 text-5xl font-semibold tracking-tight lg:text-7xl',
                   )}
                 >
-                  <div className={index === active ? 'opacity-100' : 'opacity-20'}>
+                  <Link
+                    href={service.url}
+                    className={index === active ? 'opacity-100' : 'opacity-20'}
+                  >
                     <span>{service.title}</span>
                     <sup className="align-super text-sm text-red-500 lg:text-3xl">{service.id}</sup>
-                  </div>
+                  </Link>
                 </li>
               ))}
             </ul>
-            <BorderButton className="group mt-10 border-red-100 bg-red-500/10 text-red-500">
-              Get Started{' '}
-              <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:rotate-45" />
-            </BorderButton>
+            {/* <Link href={services[active].url}>
+              <BorderButton className="group mt-10 border-red-100 bg-red-500/10 text-red-500">
+                Виж повече{' '}
+                <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:rotate-45" />
+              </BorderButton>
+            </Link> */}
           </div>
         </div>
       </div>
