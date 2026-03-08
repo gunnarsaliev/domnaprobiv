@@ -467,7 +467,9 @@ export function CustomWorshipPlayer({ worshipSongs }: CustomWorshipPlayerProps) 
                   <div className="flex items-center gap-2">
                     <p className="font-medium truncate">{song.filename || `Запис ${index + 1}`}</p>
                     {song.videoUrl && (
-                      <Video className="h-4 w-4 shrink-0 opacity-60" title="Има налично видео" />
+                      <span title="Има налично видео">
+                        <Video className="h-4 w-4 shrink-0 opacity-60" />
+                      </span>
                     )}
                   </div>
                   <p className="text-sm opacity-80">{song.date ? formatDate(song.date) : ''}</p>
