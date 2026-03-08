@@ -160,10 +160,11 @@ const Navbar22 = ({ className }: Navbar22Props) => {
                         ))}
                       </div>
                       <div className="border-t border-border pt-6">
-                        <div className="text-center text-sm text-muted-foreground">
-                          {weather && <div className="font-medium">{weather.temperature}°C</div>}
-                          <div className="font-medium">Ruse</div>
-                          <div className="mt-1">{currentTime}</div>
+                        <div className="flex items-center justify-between text-sm text-muted-foreground">
+                          <div className="font-medium">
+                            {weather && <span>{weather.temperature}°C</span>}
+                          </div>
+                          <div className="font-medium">{currentTime}ч.</div>
                         </div>
                       </div>
                     </div>

@@ -103,24 +103,42 @@ export default function MapClient({
       const style = document.createElement('style')
       style.id = 'leaflet-dark-mode'
       style.textContent = `
-        .leaflet-control-zoom a,
-        .leaflet-control-attribution a {
-          background-color: hsl(var(--muted)) !important;
-          color: hsl(var(--muted-foreground)) !important;
+        .leaflet-control-zoom a {
+          background-color: hsl(var(--background)) !important;
+          color: hsl(var(--foreground)) !important;
           border: 1px solid hsl(var(--border)) !important;
         }
         .leaflet-control-zoom a:hover {
           background-color: hsl(var(--accent)) !important;
           color: hsl(var(--accent-foreground)) !important;
         }
-        .leaflet-popup-content-wrapper,
+        .leaflet-control-attribution {
+          background-color: hsl(var(--background) / 0.9) !important;
+          color: hsl(var(--muted-foreground)) !important;
+          border: 1px solid hsl(var(--border)) !important;
+        }
+        .leaflet-control-attribution a {
+          color: hsl(var(--primary)) !important;
+        }
+        .leaflet-popup-content-wrapper {
+          background-color: hsl(var(--popover)) !important;
+          color: hsl(var(--popover-foreground)) !important;
+          border: 1px solid hsl(var(--border)) !important;
+          box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3) !important;
+        }
         .leaflet-popup-tip {
-          background-color: hsl(var(--card)) !important;
-          color: hsl(var(--card-foreground)) !important;
+          background-color: hsl(var(--popover)) !important;
           border: 1px solid hsl(var(--border)) !important;
         }
         .leaflet-popup-content {
-          color: hsl(var(--card-foreground)) !important;
+          color: hsl(var(--popover-foreground)) !important;
+          font-weight: 500;
+        }
+        .leaflet-popup-close-button {
+          color: hsl(var(--muted-foreground)) !important;
+        }
+        .leaflet-popup-close-button:hover {
+          color: hsl(var(--foreground)) !important;
         }
       `
       document.head.appendChild(style)

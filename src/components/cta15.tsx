@@ -12,7 +12,7 @@ const Cta15 = ({ className }: Cta15Props) => {
   return (
     <section className={cn('py-32', className)}>
       <div className="container" id="map">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-20 overflow-hidden rounded-2xl border bg-[radial-gradient(ellipse_30%_60%_at_100%_80%,var(--color-gray-200),transparent)] pt-20 sm:pl-16 lg:flex-row lg:bg-[radial-gradient(ellipse_50%_80%_at_40%_120%,var(--color-gray-200),transparent)] lg:pl-20">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-20 overflow-hidden rounded-2xl border bg-[radial-gradient(ellipse_30%_60%_at_100%_80%,var(--color-gray-200),transparent)] dark:bg-[radial-gradient(ellipse_30%_60%_at_100%_80%,hsl(var(--muted)),transparent)] pt-20 sm:pl-16 lg:flex-row lg:bg-[radial-gradient(ellipse_50%_80%_at_40%_120%,var(--color-gray-200),transparent)] dark:lg:bg-[radial-gradient(ellipse_50%_80%_at_40%_120%,hsl(var(--muted)),transparent)] lg:pl-20">
           <div className="lg:texlf mx-auto max-w-md px-4 text-center md:px-0 lg:mx-0 lg:pb-20 lg:text-left">
             <p className="mb-6 font-medium">Къде може да ни намерите?</p>
             <h2 className="mb-6 text-4xl font-bold md:text-5xl">ул. Дондуков-Корсаков, Русе</h2>
@@ -36,7 +36,7 @@ const Cta15 = ({ className }: Cta15Props) => {
             </div>
           </div>
           <div className="relative w-full pl-4 sm:pl-0">
-            <div className="absolute -bottom-8 -left-8 -z-10 h-4/5 w-4/5 rounded-tl-2xl rounded-br-2xl bg-stone-900/20 blur-2xl"></div>
+            <div className="absolute -bottom-8 -left-8 -z-10 h-4/5 w-4/5 rounded-tl-2xl rounded-br-2xl bg-stone-900/20 dark:bg-stone-100/10 blur-2xl"></div>
             <div className="relative z-10 h-full max-h-[400px] w-full rounded-tl-2xl rounded-br-2xl overflow-hidden">
               <Map
                 height="400px"

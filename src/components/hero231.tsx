@@ -60,11 +60,11 @@ const Hero231 = ({ className }: Hero231Props) => {
       alt: 'Portrait of Sarah Chen in studio setting',
       name: 'Sarah Chen',
     },
-    // {
-    //   src: 'https://domnaprobiv.com/api/media/file/dom-na-probiv-ruse-7.jpg',
-    //   alt: 'Portrait of Sarah Chen in studio setting',
-    //   name: 'Sarah Chen',
-    // },
+    {
+      src: 'https://domnaprobiv.com/api/media/file/nedelna-slujba.jpg',
+      alt: 'Portrait of Sarah Chen in studio setting',
+      name: 'Sarah Chen',
+    },
   ]
 
   const css = `
