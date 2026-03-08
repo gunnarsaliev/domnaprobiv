@@ -12,8 +12,8 @@ export async function POST(req: NextRequest) {
     }
 
     const { error } = await resend.emails.send({
-      from: 'Дом на пробив <noreply@contact.domnaprobiv.com>',
-      to: 'info@domnaprobiv.com',
+      from: `Дом на пробив <${process.env.EMAIL_FROM}>`,
+      to: process.env.EMAIL_TO || 'info@domnaprobiv.com',
       replyTo: email,
       subject: `Ново съобщение от ${name}`,
       text: `Име: ${name}\nИмейл: ${email}\n\nСъобщение:\n${message}`,

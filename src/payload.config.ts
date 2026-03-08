@@ -20,7 +20,7 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
   email: resendAdapter({
-    defaultFromAddress: 'noreply@contact.domnaprobiv.com',
+    defaultFromAddress: 'info@domnaprobiv.com',
     defaultFromName: 'Дом на пробив',
     apiKey: process.env.RESEND_API_KEY || '',
   }),
