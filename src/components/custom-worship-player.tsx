@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Worship } from '@/payload-types'
+import { Worship, SundayService } from '@/payload-types'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -15,10 +15,11 @@ import {
   Search,
   Repeat,
   Repeat1,
+  Video,
 } from 'lucide-react'
 
 interface CustomWorshipPlayerProps {
-  worshipSongs: Worship[]
+  worshipSongs: Worship[] | SundayService[]
 }
 
 export function CustomWorshipPlayer({ worshipSongs }: CustomWorshipPlayerProps) {
@@ -52,6 +53,23 @@ export function CustomWorshipPlayer({ worshipSongs }: CustomWorshipPlayerProps) 
     const mins = Math.floor(wholeSeconds / 60)
     const secs = wholeSeconds % 60
     return `${mins}:${secs.toString().padStart(2, '0')}`
+  }
+
+  const getYouTubeEmbedUrl = (url: string) => {
+    // Handle various YouTube URL formats
+    const regexes = [
+      /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/,
+      /youtube\.com\/watch\?.*v=([^&\n?#]+)/,
+    ]
+
+    for (const regex of regexes) {
+      const match = url.match(regex)
+      if (match && match[1]) {
+        return `https://www.youtube.com/embed/${match[1]}`
+      }
+    }
+
+    return null
   }
 
   const filteredSongs = validSongs.filter((song) => {
@@ -271,7 +289,7 @@ export function CustomWorshipPlayer({ worshipSongs }: CustomWorshipPlayerProps) 
   if (!worshipSongs || worshipSongs.length === 0) {
     return (
       <div className="text-center py-8 text-muted-foreground">
-        Все още няма качени песни за хваление.
+        Все още няма качени аудио записи.
       </div>
     )
   }
@@ -279,7 +297,7 @@ export function CustomWorshipPlayer({ worshipSongs }: CustomWorshipPlayerProps) 
   if (validSongs.length === 0) {
     return (
       <div className="text-center py-8 text-muted-foreground">
-        Няма налични песни за изпълнение.
+        Няма налични записи за изпълнение.
       </div>
     )
   }
@@ -298,7 +316,7 @@ export function CustomWorshipPlayer({ worshipSongs }: CustomWorshipPlayerProps) 
         {/* Track Info */}
         <div className="mb-6">
           <h2 className="text-2xl font-bold mb-2 text-foreground">
-            {currentTrack.filename || `Песен ${currentTrackIndex + 1}`}
+            {currentTrack.filename || `Запис ${currentTrackIndex + 1}`}
           </h2>
           <p className="text-sm text-muted-foreground">
             {currentTrack.date ? formatDate(currentTrack.date) : ''}
@@ -397,6 +415,23 @@ export function CustomWorshipPlayer({ worshipSongs }: CustomWorshipPlayerProps) 
         </div>
       </Card>
 
+      {/* YouTube Video */}
+      {currentTrack.videoUrl && getYouTubeEmbedUrl(currentTrack.videoUrl) && (
+        <Card className="p-4 border-border/50">
+          <h3 className="text-lg font-semibold mb-4 text-foreground">Видео</h3>
+          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+            <iframe
+              className="absolute top-0 left-0 w-full h-full rounded-lg"
+              src={getYouTubeEmbedUrl(currentTrack.videoUrl) || ''}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+        </Card>
+      )}
+
       {/* Search */}
       <Card className="p-4 border-border/50">
         <div className="relative">
@@ -429,7 +464,12 @@ export function CustomWorshipPlayer({ worshipSongs }: CustomWorshipPlayerProps) 
             >
               <div className="flex items-center justify-between">
                 <div className="flex-1 min-w-0">
-                  <p className="font-medium truncate">{song.filename || `Песен ${index + 1}`}</p>
+                  <div className="flex items-center gap-2">
+                    <p className="font-medium truncate">{song.filename || `Запис ${index + 1}`}</p>
+                    {song.videoUrl && (
+                      <Video className="h-4 w-4 shrink-0 opacity-60" title="Има налично видео" />
+                    )}
+                  </div>
                   <p className="text-sm opacity-80">{song.date ? formatDate(song.date) : ''}</p>
                 </div>
                 {index === currentTrackIndex && song.id === currentTrack.id && isPlaying && (

@@ -52,6 +52,7 @@ export default buildConfig({
         media: true,
         songs: true,
         worship: true,
+        'sunday-services': true,
       },
       bucket: process.env.S3_BUCKET!,
       config: {
