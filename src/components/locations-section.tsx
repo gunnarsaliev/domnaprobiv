@@ -24,12 +24,12 @@ export function LocationsSection() {
       address: 'Русе Център, ул. „Княз Ал. Дондуков-Корсаков“ № 5-1',
       image: 'https://domnaprobiv.com/api/media/file/nedelno-uchilishte.webp',
     },
-    {
-      name: 'Младежко събрание',
-      time: 'от 19:00 часа в Понеделник',
-      address: 'Русе Център, ул. „Княз Ал. Дондуков-Корсаков“ № 5-1',
-      image: 'https://domnaprobiv.com/api/media/file/mladejko.webp',
-    },
+    // {
+    //   name: 'Младежко събрание',
+    //   time: 'от 19:00 часа в Понеделник',
+    //   address: 'Русе Център, ул. „Княз Ал. Дондуков-Корсаков“ № 5-1',
+    //   image: 'https://domnaprobiv.com/api/media/file/mladejko.webp',
+    // },
   ]
 
   return (
