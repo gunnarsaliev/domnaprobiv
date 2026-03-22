@@ -14,8 +14,8 @@ const About1 = ({ className }: About1Props) => {
         <div className="flex flex-col gap-4 lg:gap-8">
           <h1 className="text-4xl font-semibold tracking-tighter lg:text-7xl">За нас</h1>
           <p className="max-w-xl text-xl">
-            Да изградим общността на църквата в центъра на града и да създадем място за духовен
-            растеж и обновление.
+            Ние сме евангелска църква, намираща се в град Русе и ръководена от презвитер Павел
+            Иванов.
           </p>
         </div>
         <div className="grid gap-6 md:grid-cols-2">
@@ -30,12 +30,13 @@ const About1 = ({ className }: About1Props) => {
             <div className="absolute inset-0 rounded-2xl bg-black/55" />
             <p className="relative text-sm font-semibold text-white">Нашата мисия</p>
             <p className="relative text-lg font-medium text-white">
-              Да изградим общността на църквата в центъра на града и да създадем място за духовен
-              растеж и обновление.
+              Мисията на църквата е да познаем Исус Христос и да донесем това познание до всеки
+              човек, като преживяваме Божията любов и делото на изкупление. Това правим, като
+              проповядваме Свещените писания и вършим добри дела.
             </p>
           </div>
         </div>
-        <div className="flex flex-col gap-6 md:gap-20">
+        {/* <div className="flex flex-col gap-6 md:gap-20">
           <div className="max-w-xl">
             <h2 className="mb-4 text-3xl font-semibold tracking-tight md:text-5xl">
               Да създадем място за духовен растеж и обновление.
@@ -80,7 +81,7 @@ const About1 = ({ className }: About1Props) => {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   )
