@@ -16,6 +16,10 @@ import {
 
 export const Testimonials: CollectionConfig = {
   slug: 'testimonials',
+  labels: {
+    singular: { bg: 'Свидетелство', en: 'Testimonial' },
+    plural: { bg: 'Свидетелства', en: 'Testimonials' },
+  },
   admin: {
     useAsTitle: 'title',
   },

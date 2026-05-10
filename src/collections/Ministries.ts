@@ -2,6 +2,10 @@ import type { CollectionConfig } from 'payload'
 
 export const Ministries: CollectionConfig = {
   slug: 'ministries',
+  labels: {
+    singular: { bg: 'Служение', en: 'Ministry' },
+    plural: { bg: 'Служения', en: 'Ministries' },
+  },
   admin: {
     useAsTitle: 'name',
   },

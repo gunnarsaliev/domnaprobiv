@@ -2,6 +2,10 @@ import type { CollectionConfig } from 'payload'
 
 export const Songs: CollectionConfig = {
   slug: 'songs',
+  labels: {
+    singular: { bg: 'Песен', en: 'Song' },
+    plural: { bg: 'Песни', en: 'Songs' },
+  },
   admin: {
     useAsTitle: 'filename',
   },

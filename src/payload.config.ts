@@ -4,6 +4,8 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { s3Storage } from '@payloadcms/storage-s3'
 import path from 'path'
 import { buildConfig } from 'payload'
+import { bg } from 'payload/i18n/bg'
+import { en } from 'payload/i18n/en'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
@@ -32,6 +34,10 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+  },
+  i18n: {
+    fallbackLanguage: 'bg',
+    supportedLanguages: { bg, en },
   },
   collections: [Users, Media, Ministries, Songs, SundayServices, Testimonials, Worship],
   editor: lexicalEditor(),

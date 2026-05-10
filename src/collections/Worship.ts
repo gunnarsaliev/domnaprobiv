@@ -2,6 +2,10 @@ import type { CollectionConfig } from 'payload'
 
 export const Worship: CollectionConfig = {
   slug: 'worship',
+  labels: {
+    singular: { bg: 'Поклонение', en: 'Worship' },
+    plural: { bg: 'Поклонения', en: 'Worship' },
+  },
   admin: {
     useAsTitle: 'filename',
   },

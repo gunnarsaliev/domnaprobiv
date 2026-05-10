@@ -2,6 +2,10 @@ import type { CollectionConfig } from 'payload'
 
 export const SundayServices: CollectionConfig = {
   slug: 'sunday-services',
+  labels: {
+    singular: { bg: 'Неделно служение', en: 'Sunday Service' },
+    plural: { bg: 'Неделни служения', en: 'Sunday Services' },
+  },
   admin: {
     useAsTitle: 'filename',
   },
