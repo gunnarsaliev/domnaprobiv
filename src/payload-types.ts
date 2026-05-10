@@ -135,6 +135,7 @@ export interface User {
   image?: (number | null) | Media;
   roles: 'super-admin' | 'admin' | 'user' | 'editor' | 'viewer';
   ministries?: (number | Ministry)[] | null;
+  about?: string | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -159,7 +160,7 @@ export interface User {
  */
 export interface Media {
   id: number;
-  alt: string;
+  alt?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -409,6 +410,7 @@ export interface UsersSelect<T extends boolean = true> {
   image?: T;
   roles?: T;
   ministries?: T;
+  about?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;

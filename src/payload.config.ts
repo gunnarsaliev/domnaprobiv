@@ -26,6 +26,9 @@ export default buildConfig({
   }),
   admin: {
     user: Users.slug,
+    avatar: {
+      Component: '@/components/admin/Avatar#default',
+    },
     importMap: {
       baseDir: path.resolve(dirname),
     },

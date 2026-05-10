@@ -48,5 +48,10 @@ export const Users: CollectionConfig = {
       hasMany: true,
       required: false,
     },
+    {
+      name: 'about',
+      type: 'textarea',
+      required: false,
+    },
   ],
 }
