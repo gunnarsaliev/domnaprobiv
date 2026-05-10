@@ -31,11 +31,15 @@ export const Testimonials: CollectionConfig = {
       name: 'title',
       type: 'text',
       required: true,
+      localized: true,
+      label: { bg: 'Заглавие', en: 'Title' },
     },
     {
       name: 'content',
       type: 'richText',
       required: true,
+      localized: true,
+      label: { bg: 'Съдържание', en: 'Content' },
       editor: lexicalEditor({
         features: ({ defaultFeatures }) => [
           ...defaultFeatures,
@@ -58,13 +62,16 @@ export const Testimonials: CollectionConfig = {
       type: 'upload',
       relationTo: 'media',
       required: false,
+      label: { bg: 'Снимка', en: 'Image' },
     },
     {
       name: 'videoUrl',
       type: 'text',
       required: false,
+      label: { bg: 'Видео URL', en: 'Video URL' },
       admin: {
-        description: 'YouTube, Vimeo, or other video URL',
+        position: 'sidebar',
+        description: { bg: 'YouTube, Vimeo или друг видео линк', en: 'YouTube, Vimeo, or other video URL' },
       },
     },
   ],

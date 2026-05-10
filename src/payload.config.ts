@@ -35,6 +35,14 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
+  localization: {
+    locales: [
+      { label: { bg: 'Български', en: 'Bulgarian' }, code: 'bg' },
+      { label: { bg: 'Английски', en: 'English' }, code: 'en' },
+    ],
+    defaultLocale: 'bg',
+    fallback: true,
+  },
   i18n: {
     fallbackLanguage: 'bg',
     supportedLanguages: { bg, en },

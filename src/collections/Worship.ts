@@ -17,6 +17,7 @@ export const Worship: CollectionConfig = {
       name: 'date',
       type: 'date',
       required: false,
+      label: { bg: 'Дата', en: 'Date' },
       admin: {
         date: {
           pickerAppearance: 'dayOnly',
@@ -27,8 +28,10 @@ export const Worship: CollectionConfig = {
       name: 'videoUrl',
       type: 'text',
       required: false,
+      label: { bg: 'Видео URL', en: 'Video URL' },
       admin: {
-        description: 'YouTube, Vimeo, or other video URL',
+        position: 'sidebar',
+        description: { bg: 'YouTube, Vimeo или друг видео линк', en: 'YouTube, Vimeo, or other video URL' },
       },
     },
   ],

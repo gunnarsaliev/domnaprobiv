@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { slugField } from '@/lib/slug'
 
 export const Ministries: CollectionConfig = {
   slug: 'ministries',
@@ -14,45 +15,46 @@ export const Ministries: CollectionConfig = {
       name: 'name',
       type: 'text',
       required: true,
+      localized: true,
+      label: { bg: 'Име', en: 'Name' },
     },
-    {
-      name: 'slug',
-      type: 'text',
-      required: true,
-      unique: true,
-      admin: {
-        position: 'sidebar',
-      },
-    },
+    slugField('name'),
     {
       name: 'description',
       type: 'richText',
       required: false,
+      localized: true,
+      label: { bg: 'Описание', en: 'Description' },
     },
     {
       name: 'image',
       type: 'upload',
       relationTo: 'media',
       required: false,
+      label: { bg: 'Снимка', en: 'Image' },
     },
     {
       name: 'videoUrl',
       type: 'text',
       required: false,
+      label: { bg: 'Видео URL', en: 'Video URL' },
       admin: {
-        description: 'YouTube, Vimeo, or other video URL',
+        position: 'sidebar',
+        description: { bg: 'YouTube, Vimeo или друг видео линк', en: 'YouTube, Vimeo, or other video URL' },
       },
     },
     {
       name: 'gallery',
       type: 'array',
       required: false,
+      label: { bg: 'Галерия', en: 'Gallery' },
       fields: [
         {
           name: 'image',
           type: 'upload',
           relationTo: 'media',
           required: true,
+          label: { bg: 'Снимка', en: 'Image' },
         },
       ],
     },
@@ -62,6 +64,7 @@ export const Ministries: CollectionConfig = {
       relationTo: 'users',
       hasMany: true,
       required: false,
+      label: { bg: 'Потребители', en: 'Users' },
     },
   ],
 }

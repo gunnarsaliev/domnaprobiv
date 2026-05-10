@@ -16,31 +16,33 @@ export const Users: CollectionConfig = {
       type: 'upload',
       relationTo: 'media',
       required: false,
+      label: { bg: 'Снимка', en: 'Image' },
     },
     {
       name: 'roles',
       type: 'select',
       required: true,
       defaultValue: 'user',
+      label: { bg: 'Роля', en: 'Role' },
       options: [
         {
-          label: 'Super Admin',
+          label: { bg: 'Супер админ', en: 'Super Admin' },
           value: 'super-admin',
         },
         {
-          label: 'Admin',
+          label: { bg: 'Админ', en: 'Admin' },
           value: 'admin',
         },
         {
-          label: 'User',
+          label: { bg: 'Потребител', en: 'User' },
           value: 'user',
         },
         {
-          label: 'Editor',
+          label: { bg: 'Редактор', en: 'Editor' },
           value: 'editor',
         },
         {
-          label: 'Viewer',
+          label: { bg: 'Наблюдател', en: 'Viewer' },
           value: 'viewer',
         },
       ],
@@ -51,11 +53,14 @@ export const Users: CollectionConfig = {
       relationTo: 'ministries',
       hasMany: true,
       required: false,
+      label: { bg: 'Служения', en: 'Ministries' },
     },
     {
       name: 'about',
       type: 'textarea',
       required: false,
+      localized: true,
+      label: { bg: 'За мен', en: 'About' },
     },
   ],
 }

@@ -96,10 +96,10 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
-  fallbackLocale: null;
+  fallbackLocale: ('false' | 'none' | 'null') | false | null | ('bg' | 'en') | ('bg' | 'en')[];
   globals: {};
   globalsSelect: {};
-  locale: null;
+  locale: 'bg' | 'en';
   user: User & {
     collection: 'users';
   };
@@ -178,7 +178,7 @@ export interface Media {
 export interface Ministry {
   id: number;
   name: string;
-  slug: string;
+  slug?: string | null;
   description?: {
     root: {
       type: string;

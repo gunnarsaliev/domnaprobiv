@@ -14,6 +14,8 @@ export const Media: CollectionConfig = {
       name: 'alt',
       type: 'text',
       required: false,
+      localized: true,
+      label: { bg: 'Алт текст', en: 'Alt text' },
     },
   ],
   upload: {
