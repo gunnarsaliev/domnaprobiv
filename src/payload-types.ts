@@ -132,6 +132,8 @@ export interface UserAuthOperations {
  */
 export interface User {
   id: number;
+  name?: string | null;
+  verse?: string | null;
   image?: (number | null) | Media;
   roles: 'super-admin' | 'admin' | 'user' | 'editor' | 'viewer';
   ministries?: (number | Ministry)[] | null;
@@ -407,6 +409,8 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  name?: T;
+  verse?: T;
   image?: T;
   roles?: T;
   ministries?: T;

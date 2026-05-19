@@ -21,6 +21,8 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
+  serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL || '',
+
   email: resendAdapter({
     defaultFromAddress: 'info@domnaprobiv.com',
     defaultFromName: 'Дом на пробив',
@@ -78,7 +80,7 @@ export default buildConfig({
           accessKeyId: process.env.S3_ACCESS_KEY_ID!,
           secretAccessKey: process.env.S3_SECRET_ACCESS_KEY!,
         },
-        region: process.env.S3_REGION,
+        region: process.env.S3_REGION ?? 'auto',
         forcePathStyle: true,
       },
     }),

@@ -12,6 +12,18 @@ export const Users: CollectionConfig = {
   auth: true,
   fields: [
     {
+      name: 'name',
+      type: 'text',
+      required: false,
+      label: { bg: 'Име', en: 'Name' },
+    },
+    {
+      name: 'verse',
+      type: 'textarea',
+      required: false,
+      label: { bg: 'Стих', en: 'Verse' },
+    },
+    {
       name: 'image',
       type: 'upload',
       relationTo: 'media',
