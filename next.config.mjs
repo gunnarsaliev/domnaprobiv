@@ -15,6 +15,10 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'pub-56cdfb9c5681437d80c80f64a6284773.r2.dev',
+      },
+      {
+        protocol: 'https',
         hostname: 'deifkwefumgah.cloudfront.net',
       },
     ],

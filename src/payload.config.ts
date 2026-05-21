@@ -20,6 +20,17 @@ import { Worship } from './collections/Worship'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+const generateMediaFileURL = ({
+  filename: name,
+  prefix,
+}: {
+  filename: string
+  prefix?: string
+}) => {
+  const base = (process.env.NEXT_PUBLIC_MEDIA_URL || '').replace(/\/$/, '')
+  return prefix ? `${base}/${prefix}/${name}` : `${base}/${name}`
+}
+
 export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL || '',
 
@@ -68,10 +79,13 @@ export default buildConfig({
   plugins: [
     s3Storage({
       collections: {
-        media: true,
-        songs: true,
-        worship: true,
-        'sunday-services': true,
+        media: { generateFileURL: generateMediaFileURL, disablePayloadAccessControl: true },
+        songs: { generateFileURL: generateMediaFileURL, disablePayloadAccessControl: true },
+        worship: { generateFileURL: generateMediaFileURL, disablePayloadAccessControl: true },
+        'sunday-services': {
+          generateFileURL: generateMediaFileURL,
+          disablePayloadAccessControl: true,
+        },
       },
       bucket: process.env.S3_BUCKET!,
       config: {
