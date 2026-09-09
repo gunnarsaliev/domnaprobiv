@@ -22,5 +22,8 @@ export const Media: CollectionConfig = {
     // These are not supported on Workers yet due to lack of sharp
     crop: false,
     focalPoint: false,
+    // Files live only in R2 (see s3Storage plugin); local disk is ephemeral
+    // in production, so Payload must never stage/read files from it.
+    disableLocalStorage: true,
   },
 }

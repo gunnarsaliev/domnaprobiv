@@ -36,6 +36,9 @@ export const Worship: CollectionConfig = {
     },
   ],
   upload: {
+    // Files live only in R2 (see s3Storage plugin); local disk is ephemeral
+    // in production, so Payload must never stage/read files from it.
+    disableLocalStorage: true,
     mimeTypes: [
       'audio/mpeg',
       'audio/mp3',
