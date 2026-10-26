@@ -2,6 +2,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import Image from 'next/image'
+import { mediaUrl } from '@/lib/media'
 import Link from 'next/link'
 
 export function LocationsSection() {
@@ -10,25 +11,25 @@ export function LocationsSection() {
       name: 'Неделна служба',
       time: 'от 10:30ч в Неделя',
       address: 'Русе Център, ул. „Княз Ал. Дондуков-Корсаков“ № 5-1',
-      image: 'https://domnaprobiv.com/api/media/file/nedelna.webp',
+      image: mediaUrl('nedelna.webp'),
     },
     {
       name: 'Молитва',
       time: 'от 19:00 часа в Петък',
       address: 'Русе Център, ул. „Княз Ал. Дондуков-Корсаков“ № 5-1',
-      image: 'https://domnaprobiv.com/api/media/file/molitva.webp',
+      image: mediaUrl('molitva.webp'),
     },
     {
       name: 'Неделно училище',
       time: 'от 11:30 часа в Неделя',
       address: 'Русе Център, ул. „Княз Ал. Дондуков-Корсаков“ № 5-1',
-      image: 'https://domnaprobiv.com/api/media/file/nedelno-uchilishte.webp',
+      image: mediaUrl('nedelno-uchilishte.webp'),
     },
     // {
     //   name: 'Младежко събрание',
     //   time: 'от 19:00 часа в Понеделник',
     //   address: 'Русе Център, ул. „Княз Ал. Дондуков-Корсаков“ № 5-1',
-    //   image: 'https://domnaprobiv.com/api/media/file/mladejko.webp',
+    //   image: mediaUrl('mladejko.webp'),
     // },
   ]
 

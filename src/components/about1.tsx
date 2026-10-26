@@ -2,6 +2,7 @@ import { CircleArrowRight, Files, Settings } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
+import { mediaUrl } from '@/lib/media'
 
 interface About1Props {
   className?: string
@@ -26,7 +27,10 @@ const About1 = ({ className }: About1Props) => {
             alt="placeholder"
             className="size-full max-h-96 rounded-2xl object-cover"
           />
-          <div className="relative flex flex-col justify-between gap-10 rounded-2xl bg-[url('/api/media/file/nedelna-slujba.jpg')] bg-cover bg-center p-10">
+          <div
+            className="relative flex flex-col justify-between gap-10 rounded-2xl bg-cover bg-center p-10"
+            style={{ backgroundImage: `url(${mediaUrl('nedelna-slujba.jpg')})` }}
+          >
             <div className="absolute inset-0 rounded-2xl bg-black/55" />
             <p className="relative text-sm font-semibold text-white">Нашата мисия</p>
             <p className="relative text-lg font-medium text-white">

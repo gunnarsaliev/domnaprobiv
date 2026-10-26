@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
+import { mediaUrl } from '@/lib/media'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
@@ -32,21 +33,21 @@ const Services21 = ({ className }: Services21Props) => {
       id: '{01}',
       url: '/nedelni-subraniya',
       title: 'Неделни служби',
-      image: '/api/media/file/nedelna-slujba.jpg',
+      image: mediaUrl('nedelna-slujba.jpg'),
       description: 'Слушай минали проповеди',
     },
     {
       id: '{02}',
       url: '/hvalenie',
       title: 'Хваление',
-      image: '/api/media/file/IMG_20251116_150809.jpg',
+      image: mediaUrl('IMG_20251116_150809.jpg'),
       description: 'Това са песните от службите за хваление през неделните служби',
     },
     {
       id: '{03}',
       url: '/pesni',
       title: 'Песни',
-      image: '/api/media/file/yumu-ifreZpMoukk-unsplash.jpg',
+      image: mediaUrl('yumu-ifreZpMoukk-unsplash.jpg'),
       description: 'Индивидуални песни от служението за хваление',
     },
     // {

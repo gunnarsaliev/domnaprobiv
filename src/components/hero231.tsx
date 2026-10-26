@@ -3,6 +3,7 @@
 import AutoScroll from 'embla-carousel-auto-scroll'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
+import { mediaUrl } from '@/lib/media'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules'
@@ -31,37 +32,37 @@ const Hero231 = ({ className }: Hero231Props) => {
 
   const images = [
     {
-      src: 'https://domnaprobiv.com/api/media/file/dom-na-probiv-ruse-1.jpg',
+      src: mediaUrl('dom-na-probiv-ruse-1.jpg'),
       alt: 'Portrait of Joanna Doe in urban setting',
       name: 'Joanna Doe',
     },
     {
-      src: 'https://domnaprobiv.com/api/media/file/dom-na-probiv-ruse-2.jpg',
+      src: mediaUrl('dom-na-probiv-ruse-2.jpg'),
       alt: 'Portrait of Joan Doe in natural lighting',
       name: 'Joan Doe',
     },
     {
-      src: 'https://domnaprobiv.com/api/media/file/dom-na-probiv-ruse-3.jpg',
+      src: mediaUrl('dom-na-probiv-ruse-3.jpg'),
       alt: 'Portrait of Sarah Chen in studio setting',
       name: 'Sarah Chen',
     },
     {
-      src: 'https://domnaprobiv.com/api/media/file/dom-na-probiv-ruse-8.jpg',
+      src: mediaUrl('dom-na-probiv-ruse-8.jpg'),
       alt: 'Portrait of Joanna Doe in urban setting',
       name: 'Joanna Doe',
     },
     {
-      src: 'https://domnaprobiv.com/api/media/file/dom-na-probiv-ruse-5.jpg',
+      src: mediaUrl('dom-na-probiv-ruse-5.jpg'),
       alt: 'Portrait of Joan Doe in natural lighting',
       name: 'Joan Doe',
     },
     {
-      src: 'https://domnaprobiv.com/api/media/file/dom-na-probiv-ruse-6.jpg',
+      src: mediaUrl('dom-na-probiv-ruse-6.jpg'),
       alt: 'Portrait of Sarah Chen in studio setting',
       name: 'Sarah Chen',
     },
     {
-      src: 'https://domnaprobiv.com/api/media/file/nedelna-slujba.jpg',
+      src: mediaUrl('nedelna-slujba.jpg'),
       alt: 'Portrait of Sarah Chen in studio setting',
       name: 'Sarah Chen',
     },
