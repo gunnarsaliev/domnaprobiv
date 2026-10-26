@@ -50,6 +50,13 @@ const Services21 = ({ className }: Services21Props) => {
       image: mediaUrl('yumu-ifreZpMoukk-unsplash.jpg'),
       description: 'Индивидуални песни от служението за хваление',
     },
+    {
+      id: '{04}',
+      url: '/resursi/seminari',
+      title: 'Семинари',
+      image: mediaUrl('nedelna.webp'),
+      description: 'Записи от семинари и учебни поредици',
+    },
     // {
     //   id: "{04}",
     //   title: "Branding",

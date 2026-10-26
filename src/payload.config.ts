@@ -15,6 +15,7 @@ import { Ministries } from './collections/Ministries'
 import { Songs } from './collections/Songs'
 import { SundayServices } from './collections/SundayServices'
 import { Testimonials } from './collections/Testimonials'
+import { Seminars } from './collections/Seminars'
 import { Worship } from './collections/Worship'
 
 const filename = fileURLToPath(import.meta.url)
@@ -60,7 +61,7 @@ export default buildConfig({
     fallbackLanguage: 'bg',
     supportedLanguages: { bg, en },
   },
-  collections: [Users, Media, Ministries, Songs, SundayServices, Testimonials, Worship],
+  collections: [Users, Media, Ministries, Songs, SundayServices, Testimonials, Worship, Seminars],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

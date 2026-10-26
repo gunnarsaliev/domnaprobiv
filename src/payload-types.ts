@@ -74,6 +74,7 @@ export interface Config {
     'sunday-services': SundayService;
     testimonials: Testimonial;
     worship: Worship;
+    seminars: Seminar;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -88,6 +89,7 @@ export interface Config {
     'sunday-services': SundayServicesSelect<false> | SundayServicesSelect<true>;
     testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
     worship: WorshipSelect<false> | WorshipSelect<true>;
+    seminars: SeminarsSelect<false> | SeminarsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -312,6 +314,44 @@ export interface Worship {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "seminars".
+ */
+export interface Seminar {
+  id: number;
+  title: string;
+  slug?: string | null;
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  speakers?: (number | User)[] | null;
+  uploader?: (number | null) | User;
+  allowVideoDownload?: boolean | null;
+  allowAudioDownload?: boolean | null;
+  chapters: {
+    title: string;
+    youtubeUrl?: string | null;
+    videoUrl?: string | null;
+    audioUrl?: string | null;
+    id?: string | null;
+  }[];
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -361,6 +401,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'worship';
         value: number | Worship;
+      } | null)
+    | ({
+        relationTo: 'seminars';
+        value: number | Seminar;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -536,6 +580,31 @@ export interface WorshipSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "seminars_select".
+ */
+export interface SeminarsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  description?: T;
+  speakers?: T;
+  uploader?: T;
+  allowVideoDownload?: T;
+  allowAudioDownload?: T;
+  chapters?:
+    | T
+    | {
+        title?: T;
+        youtubeUrl?: T;
+        videoUrl?: T;
+        audioUrl?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
